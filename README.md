@@ -35,12 +35,12 @@ Describe what you want in plain English. Claude writes real React code against a
 
 Every other AI UI prototyper ships with heavy runtime infra **and** a fixed stack. UI Gen is the opposite.
 
-|                           | **UI Gen**       | v0                | Bolt                    | Lovable              | Galileo     |
-| ------------------------- | ------------ | ----------------- | ----------------------- | -------------------- | ----------- |
-| Your own design system?   | ✅ **Yes**      | shadcn only       | ❌ No                      | ❌ No                   | ❌ No          |
-| Preview compute           | 🌐 **Browser**  | ☁️ Server            | 🐳 WebContainer | ☁️ Server             | ☁️ Cloud       |
-| Open source               | 📖 **MIT**      | ❌ No                | Partial                 | ❌ No                   | ❌ No          |
-| Private registry support  | 🔒 **Yes**      | ❌ No                | ❌ No                      | ❌ No                   | ❌ No          |
+|                           | **UI Gen**       | v0                | Bolt.new                    | Lovable              |
+| ------------------------- | ------------ | ----------------- | ----------------------- | -------------------- |
+| Your own design system?   | ✅ **Yes**      | shadcn only (beta) | ❌ No                      | ❌ No                   |
+| Preview compute           | 🌐 **Browser**  | ☁️ Server            | 🐳 WebContainer | ☁️ Server             |
+| Open source               | 📖 **MIT**      | ❌ No                | Partial                 | ❌ No                   |
+| Private registry support  | 🔒 **Yes**      | ❌ No                | ❌ No                      | ❌ No                   |
 
 > **The big idea:** the design system is a plug-in, not a hardcode. Point `src/config/uigen.config.ts` at Material UI, HeroUI, a private `@your-scope/ds-core`, or your monorepo workspace — no engine changes, no rebuild of the app.
 
