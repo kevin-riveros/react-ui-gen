@@ -30,7 +30,6 @@ Describe what you want in plain English. Claude writes real React code against a
 
 <br />
 
-<img alt="UI Gen demo — prompt to live preview in seconds" src="https://via.placeholder.com/1200x600/0a0a0a/e50914?text=UI+Gen+%E2%80%94+demo+GIF+goes+here" width="100%" />
 
 </div>
 
@@ -50,6 +49,12 @@ Every other AI UI prototyper ships with heavy runtime infra **and** a fixed stac
 > **The big idea:** the design system is a plug-in, not a hardcode. Point `src/config/uigen.config.ts` at Material UI, HeroUI, a private `@your-scope/ds-core`, or your monorepo workspace — no engine changes, no rebuild of the app.
 
 ---
+
+
+<br />
+<img alt="Screenshot 2026-04-22 at 9 23 40 PM" src="https://github.com/user-attachments/assets/939e730d-5308-4995-982b-5d57f8aae9c1" />
+<br />
+
 
 ## ✨ What makes it wow
 
