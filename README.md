@@ -105,26 +105,30 @@ Five ready-to-use configs live in [`src/config-examples/`](./src/config-examples
 <table>
   <tr>
     <td align="center" width="33%">
-      <a href="./src/config-examples/heroui-netflix"><img src="https://via.placeholder.com/400x250/e50914/ffffff?text=HeroUI+%E2%80%94+Netflix" alt="HeroUI Netflix" /></a>
-      <br /><b>HeroUI — Netflix</b><br /><sub>✨ default · cinematic dark + red</sub>
+      <a href="./src/config-examples/heroui-netflix">
+        <img width="1506" height="783" alt="Screenshot 2026-04-22 at 10 20 00 PM" src="https://github.com/user-attachments/assets/0b7f0c0b-8156-4520-9970-b344bc192d69" />
+      </a>
+      <br /><b>HeroUI — Netflix</b><br /><sub>✨ cinematic dark + red</sub>
     </td>
     <td align="center" width="33%">
-      <a href="./src/config-examples/heroui-airbnb"><img src="https://via.placeholder.com/400x250/ff385c/ffffff?text=HeroUI+%E2%80%94+Airbnb" alt="HeroUI Airbnb" /></a>
+      <a href="./src/config-examples/heroui-airbnb"><img width="1506" height="786" alt="Screenshot 2026-04-22 at 10 20 39 PM" src="https://github.com/user-attachments/assets/41e06eb5-57a3-4a95-8ef0-85046d5292e3" /></a>
       <br /><b>HeroUI — Airbnb</b><br /><sub>coral, warm neutrals</sub>
     </td>
     <td align="center" width="33%">
-      <a href="./src/config-examples/heroui-uber"><img src="https://via.placeholder.com/400x250/000000/ffffff?text=HeroUI+%E2%80%94+Uber" alt="HeroUI Uber" /></a>
+      <a href="./src/config-examples/heroui-uber">
+        <img width="1510" height="781" alt="Screenshot 2026-04-22 at 10 23 06 PM" src="https://github.com/user-attachments/assets/8f8f26d9-4e32-49a3-952b-0bbdbae58d26" />
+      </a>
       <br /><b>HeroUI — Uber</b><br /><sub>monochrome, clean</sub>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <a href="./src/config-examples/material-ui"><img src="https://via.placeholder.com/400x250/1976d2/ffffff?text=Material+UI" alt="Material UI" /></a>
-      <br /><b>Material UI</b><br /><sub>public npm, CSS-in-JS</sub>
+      <a href="./src/config-examples/material-ui">Material UI</a>
+      <br /><sub>public npm, CSS-in-JS</sub>
     </td>
     <td align="center">
-      <a href="./src/config-examples/vanilla-tailwind"><img src="https://via.placeholder.com/400x250/f9fafb/111827?text=Vanilla+%2B+Tailwind" alt="Vanilla" /></a>
-      <br /><b>Vanilla Tailwind</b><br /><sub>React + Tailwind, no DS</sub>
+      <a href="./src/config-examples/vanilla-tailwind">Vanilla Tailwind</a>
+      <br /><sub>React + Tailwind, no DS</sub>
     </td>
     <td align="center">
     </td>
