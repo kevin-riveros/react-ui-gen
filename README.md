@@ -21,7 +21,12 @@ Describe what you want in plain English. Claude writes real React code against a
 
 <br />
 
-**[Live demo (coming soon)]** · [Plug in your design system](./src/docs/prototype-with-your-design-system.md) · [Design gallery](./src/config-examples) · [Report a bug](https://github.com/kevin-riveros/react-ui-gen/issues/new?template=bug_report.md)
+<img width="718" height="374" alt="react-gen-ui-gift" src="https://github.com/user-attachments/assets/5da85460-d37c-4204-b526-1a8d4e8cfabe" />
+
+
+
+
+**[Live demo]** · [Plug in your design system](./src/docs/prototype-with-your-design-system.md) · [Design gallery](./src/config-examples) · [Report a bug](https://github.com/kevin-riveros/react-ui-gen/issues/new?template=bug_report.md)
 
 <br />
 
