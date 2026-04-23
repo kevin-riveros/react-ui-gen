@@ -1,6 +1,7 @@
 <div align="center">
 
-<img alt="UI Gen" src="https://github.com/user-attachments/assets/d6d566de-7a9d-4f74-887b-87c36bae9513" width="100px" />
+<img width="927" height="540" alt="Screenshot 2026-04-22 at 10 56 33 PM" src="https://github.com/user-attachments/assets/897fad90-0a54-4ebd-b09b-013a9ecfb651" />
+
 
 # React UI Gen
 
