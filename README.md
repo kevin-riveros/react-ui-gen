@@ -27,7 +27,7 @@ Describe what you want in plain English. Claude writes real React against any de
 
 
 
-**[Live demo](youtube.com/watch?v=pS647ckCcN4)** · [Plug in your design system](./src/docs/prototype-with-your-design-system.md) · [Design gallery](./src/config-examples) · [Report a bug](https://github.com/kevin-riveros/react-ui-gen/issues/new?template=bug_report.md)
+**[Live demo](https://www.youtube.com/watch?v=pS647ckCcN4)** · [Plug in your design system](./src/docs/prototype-with-your-design-system.md) · [Design gallery](./src/config-examples) · [Report a bug](https://github.com/kevin-riveros/react-ui-gen/issues/new?template=bug_report.md)
 
 <br />
 
