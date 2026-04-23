@@ -1,0 +1,12 @@
+{
+  "name": "Homepage",
+  "description": "Netflix-style homepage with billboard hero and horizontal content rows",
+  "slug": "homepage",
+  "icon": "🎬",
+  "urlPath": "",
+  "lockedFiles": [
+    "/components/Navbar.tsx",
+    "/components/Footer.tsx",
+    "/index.css"
+  ]
+}

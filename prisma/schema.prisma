@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  name      String
+  messages  String   @default("[]")
+  data      String   @default("{}")
+  summary   String?
+  summaryMessageId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

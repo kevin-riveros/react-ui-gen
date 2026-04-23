@@ -1,0 +1,12 @@
+{
+  "name": "New Season Landing",
+  "description": "Cinematic landing page for a new-season premiere — billboard, trailer, episodes, and cast",
+  "slug": "new-season",
+  "icon": "🎞️",
+  "urlPath": "/new-season",
+  "lockedFiles": [
+    "/components/Navbar.tsx",
+    "/components/Footer.tsx",
+    "/index.css"
+  ]
+}

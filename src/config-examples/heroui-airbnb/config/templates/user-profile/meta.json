@@ -1,0 +1,7 @@
+{
+  "name": "User Profile",
+  "description": "Airbnb-style host profile with avatar, stats, bio, reviews, and listings",
+  "slug": "user-profile",
+  "icon": "🏖️",
+  "urlPath": "/user-profile"
+}
