@@ -7,7 +7,7 @@
 
 ### Prompt → Live React UI. Built with **your** design system. Rendered in your browser.
 
-Describe what you want in plain English. Claude writes real React code against any design system you plug in — public npm, private registry, or your own monorepo package. The preview runs entirely in the browser. No containers. No sandboxes. No limits.
+Describe what you want in plain English. Claude writes real React against any design system you plug in — public npm, private registry, or your own monorepo package. The preview renders in your browser as the agent types. No servers to spin up, no WebContainers to boot, no infra to maintain.
 
 <br />
 
@@ -36,9 +36,17 @@ Describe what you want in plain English. Claude writes real React code against a
 
 ---
 
-## Why UI Gen?
+## What it is
 
-Every other AI UI prototyper ships with heavy runtime infra **and** a fixed stack. UI Gen is the opposite.
+React UI Gen is a **prototyping surface**, not an IDE. You open it, pick a template, and describe the UI you want. Claude writes real React against *your* design system — the one your team actually uses, even if it lives on a private registry. The preview renders live in your browser as the agent writes.
+
+You're not running your production app here. You're iterating on components — fast, in isolation, against the real design-system contract.
+
+---
+
+## Why not v0, Bolt, or Lovable
+
+Every other AI UI prototyper ships heavy runtime infra **and** a fixed stack. UI Gen does the opposite.
 
 |                           | **UI Gen**       | v0                | Bolt.new                    | Lovable              |
 | ------------------------- | ------------ | ----------------- | ----------------------- | -------------------- |
@@ -47,7 +55,7 @@ Every other AI UI prototyper ships with heavy runtime infra **and** a fixed stac
 | Open source               | 📖 **MIT**      | ❌ No                | Partial                 | ❌ No                   |
 | Private registry support  | 🔒 **Yes**      | ❌ No                | ❌ No                      | ❌ No                   |
 
-> **The big idea:** the design system is a plug-in, not a hardcode. Point `src/config/uigen.config.ts` at Material UI, HeroUI, a private `@your-scope/ds-core`, or your monorepo workspace — no engine changes, no rebuild of the app.
+The design system is a plug-in, not a hardcode. Point `src/config/uigen.config.ts` at Material UI, HeroUI, a private `@your-scope/ds-core`, or a monorepo workspace — no engine changes, no rebuild.
 
 ---
 
@@ -57,22 +65,41 @@ Every other AI UI prototyper ships with heavy runtime infra **and** a fixed stac
 <br />
 
 
-## ✨ What makes it wow
+## How it works
 
-- 🌐 **100% browser-only preview.** Babel + `@tailwindcss/browser` + ESM import maps. No per-user containers. No WebContainer boot. Scales multi-tenant for free.
-- 🎨 **Bring your own design system.** Public npm, private GitHub Packages, `pnpm link`, `file:` deps — all supported. One config file, zero engine changes.
-- 🤖 **A real agent loop, not a completion endpoint.** Tool use (`Read` / `Write` / `Edit` / `Grep` / `Skill`) over a virtual filesystem, prompt caching, and context compression via Haiku for long sessions.
-- 📚 **On-demand skills.** DS-specific reference docs in markdown — the agent loads them only when needed. Mirrors Claude Agent Skills.
-- 🖼️ **Multimodal prompts.** Drop, paste, or attach screenshots. Say *"build this"* next to a mock — Claude gets the image alongside your text.
-- ⚡ **Progressive rendering.** Components appear in the preview as the agent writes them, not at the end.
-- 🎯 **Visual inspector.** Click any element in the preview to attach its tag, classes, source file, and line to your next message. The agent edits the right thing, not the closest thing.
-- 🔐 **File locks.** Mark `Navbar.tsx`, `Footer.tsx`, or `index.css` as locked and the agent's `Write` / `Edit` tools refuse to touch them.
-- 🧩 **Templates + starter files.** Start from a pre-built layout (Homepage, Dashboard, Profile) or a blank canvas seeded with your DS's entry files.
-- ✂️ **Split editor.** Resizable three-panel layout — chat on the left, Preview ⇄ Code tabs on the right with a file tree and syntax highlighting.
-- 🗂️ **Project switcher.** Jump between experiments from the header dropdown. State persists.
-- 📦 **Download as ZIP.** Export the virtual filesystem with an auto-generated `package.json` and a README explaining how to wire it into Vite / Next.js / CRA.
+### 🌐 Browser-only preview
+
+Babel standalone + `@tailwindcss/browser` + ESM import maps, rendered inside a `srcdoc` iframe. No per-user container, no WebContainer, no server-side preview compute. A hosted instance serves 1 user or 10,000 with the same footprint.
+
+### 🎨 Your design system, not a fixed one
+
+One config file (`src/config/uigen.config.ts`) points the engine at any DS — public npm, GitHub Packages, `file:` deps, `pnpm link`, or a monorepo workspace. Swap Material UI for HeroUI for `@your-scope/ds-core` without touching engine code.
+
+### 🧪 Built to prototype, not to run a project
+
+Every session starts from an **isolated template** — not a blank `create-next-app`. The agent only sees the DS contract and the canvas, not 10k files of boilerplate. Every token goes into *your* components instead of Claude re-scaffolding Next.js on every turn. Short context, cheap sessions, fast iteration.
+
+### 🛡️ Security by default
+
+Tool use writes to an **in-memory virtual filesystem**, not your disk. The preview runs inside a **browser iframe**, not on your host. Private packages resolve inside that sandbox — nothing ever lands in your `node_modules`. A malicious skill or a prompt injection has no shell, no filesystem, nowhere to go.
+
+### 🤖 A real agent loop
+
+Tool use (`Read` / `Write` / `Edit` / `Grep` / `Skill`) over the virtual filesystem. Prompt caching trims long sessions; context compression via Haiku keeps them alive past the usual wall. DS-specific docs load on-demand through `Skill`, so the system prompt stays short.
+
+---
+
+## Everything else in the box
+
+- 🖼️ **Multimodal chat.** Drop a screenshot, paste from clipboard, or attach from disk. Say *"build this"* next to a mock — Claude gets the image alongside your text, in the same turn.
+- 🎯 **Visual inspector.** Click any element in the preview. Its tag, classes, source file, and line attach to your next message — the agent edits the right thing, not the closest thing.
+- 🔐 **File locks.** Mark `Navbar.tsx`, `Footer.tsx`, or `index.css` as locked. The agent's `Write` / `Edit` tools refuse to touch them.
+- ⚡ **Progressive rendering.** Components appear in the preview as the agent writes them, not at the end of a batch response.
+- 🧩 **Templates + project switcher.** Start from Homepage, Dashboard, Profile, or a blank canvas seeded with your DS entry files. Jump between experiments from the header.
 - 🔗 **Share links.** Publish a read-only `/share/[projectId]` URL for design review — full-screen preview with an "Open in editor" handoff.
-- 🧪 **Mock fallback.** Works without an API key. Canned responses for demos and CI.
+- 📦 **Download as ZIP.** Export the virtual filesystem with a generated `package.json` and a README explaining how to wire into Vite / Next.js / CRA.
+- ✂️ **Split editor.** Resizable three-panel layout — chat on the left, Preview ⇄ Code tabs on the right with a file tree and syntax highlighting.
+- 🧪 **Mock fallback.** Works without an API key — canned responses for demos and CI.
 
 ---
 
