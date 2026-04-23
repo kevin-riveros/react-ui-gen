@@ -276,3 +276,7 @@ export function useChat() {
   }
   return context;
 }
+
+export function useOptionalChat() {
+  return useContext(ChatContext) ?? null;
+}

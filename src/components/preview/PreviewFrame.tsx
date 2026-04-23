@@ -8,7 +8,7 @@ import {
   useSyncExternalStore,
 } from "react";
 import { useFileSystem } from "@/lib/contexts/file-system-context";
-import { useChat } from "@/lib/contexts/chat-context";
+import { useOptionalChat } from "@/lib/contexts/chat-context";
 import {
   createImportMap,
   createPreviewHTML,
@@ -128,7 +128,9 @@ export function PreviewFrame({ externalIframeRef }: PreviewFrameProps) {
   const localRef = useRef<HTMLIFrameElement>(null);
   const iframeRef = externalIframeRef ?? localRef;
   const { getAllFiles, refreshTrigger } = useFileSystem();
-  const { sendMessage, isStreaming } = useChat();
+  const chat = useOptionalChat();
+  const sendMessage = chat?.sendMessage;
+  const isStreaming = chat?.isStreaming ?? false;
   const [error, setError] = useState<string | null>(null);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -172,7 +174,7 @@ export function PreviewFrame({ externalIframeRef }: PreviewFrameProps) {
 
   const handleFixWithAgent = useCallback(() => {
     const errorText = runtimeError ?? error;
-    if (!errorText || isStreaming) return;
+    if (!errorText || isStreaming || !sendMessage) return;
     sendMessage({ text: `Fix this error: ${errorText}` });
     clearPreviewError();
   }, [runtimeError, error, isStreaming, sendMessage]);
@@ -302,15 +304,17 @@ export function PreviewFrame({ externalIframeRef }: PreviewFrameProps) {
           <p className="text-xs text-gray-400 mt-2">
             Start by creating a React component using the AI assistant
           </p>
-          <button
-            type="button"
-            onClick={handleFixWithAgent}
-            disabled={isStreaming}
-            className="mt-5 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <Sparkles className="h-4 w-4" />
-            Fix with the agent
-          </button>
+          {chat && (
+            <button
+              type="button"
+              onClick={handleFixWithAgent}
+              disabled={isStreaming}
+              className="mt-5 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <Sparkles className="h-4 w-4" />
+              Fix with the agent
+            </button>
+          )}
         </div>
       </div>
     );
@@ -351,15 +355,17 @@ export function PreviewFrame({ externalIframeRef }: PreviewFrameProps) {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-neutral-900">Preview failed to render</p>
               <p className="mt-1 text-xs text-neutral-500 line-clamp-2">{runtimeError.split("\n")[0]}</p>
-              <button
-                type="button"
-                onClick={handleFixWithAgent}
-                disabled={isStreaming}
-                className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <Sparkles className="h-3.5 w-3.5" />
-                Fix with the agent
-              </button>
+              {chat && (
+                <button
+                  type="button"
+                  onClick={handleFixWithAgent}
+                  disabled={isStreaming}
+                  className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-neutral-900 text-white rounded-md hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Fix with the agent
+                </button>
+              )}
             </div>
           </div>
         </div>
