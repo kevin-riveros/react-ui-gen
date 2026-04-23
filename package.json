@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "validate-config": "node scripts/validate-config.mjs",
-    "dev": "pnpm run validate-config && node scripts/ensure-assets.mjs && node scripts/ensure-db.mjs && NODE_OPTIONS='--require ./node-compat.cjs' next dev --turbopack",
+    "dev": "pnpm run validate-config && node scripts/ensure-assets.mjs && node scripts/ensure-db.mjs && NODE_OPTIONS='--require ./node-compat.cjs' next dev",
     "prebuild": "pnpm run validate-config && pnpm exec prisma generate && node scripts/build-packages.mjs",
     "build": "pnpm run prebuild && NODE_OPTIONS='--require ./node-compat.cjs' next build",
     "vercel-build": "pnpm run build",
