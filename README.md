@@ -1,8 +1,8 @@
 <div align="center">
 
-<img alt="UI Gen" src="https://via.placeholder.com/1200x400/0a0a0a/e50914?text=UI+Gen" width="100%" />
+<img alt="UI Gen" src="https://github.com/user-attachments/assets/d6d566de-7a9d-4f74-887b-87c36bae9513" width="100px" />
 
-# UI Gen
+# React UI Gen
 
 ### Prompt → Live React UI. Built with **your** design system. Rendered in your browser.
 
